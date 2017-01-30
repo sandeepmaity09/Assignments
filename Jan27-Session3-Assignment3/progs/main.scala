@@ -37,15 +37,18 @@ object Demo {
       val line = lines.mkString
       val splitLine = line.split("\\s").groupBy(x=>x).map(x=>(x._1,x._2.size))
       val words = splitLine.keys
-      for(i<-words)
-        println(i+" "+splitLine(i))
+      for(i<-words){
+        val line = i+" "+splitLine(i)+"\n"
+        writer.write(line)
+      }
+      writer.close()
     }
   }
   
 
   def main(args: Array[String]) {
-    //readFile()
-    //writeFile()
+    readFile()
+    writeFile()
     wordCount()
   }
 }
